@@ -13,7 +13,9 @@ var newQuote = function () {
         var randomNum = Math.floor(Math.random() * (data.length - 1))
         document.getElementById('text').textContent = data[randomNum].text
         document.getElementById('author').textContent = data[randomNum].author
-    }
+
+        document.querySelector('#tweet-quote').setAttribute('href', 'https://twitter.com/intent/tweet?text=' + encodeURIComponent('"' + data[randomNum].text + '" ' + data[randomNum].author));
+    };
 
     request.send()
 }
