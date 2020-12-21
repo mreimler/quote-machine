@@ -2,7 +2,7 @@ var newQuote = function () {
 
     var request = new XMLHttpRequest()
 
-    request.open("GET", "https://type.fit/api/quotes", true)
+    request.open('GET', 'https://type.fit/api/quotes', true)
 
 
 
@@ -11,13 +11,11 @@ var newQuote = function () {
         var data = JSON.parse(this.response);
         //append random to DOM
         var randomNum = Math.floor(Math.random() * (data.length - 1))
-        document.getElementById("text").textContent = data[randomNum].text
-        document.getElementById("author").textContent = data[randomNum].author
-        //document.querySelector("#tweet-quote").setAttribute = (data[randomNum].text + data[randomNum].author);
-        document.querySelector("#tweet-quote").setAttribute("href", "https://twitter.com/intent/tweet?text=" + encodeURIComponent('"' + data[randomNum].text + '" ' + data[randomNum].author));
-    };
-    
+        document.getElementById('text').textContent = data[randomNum].text
+        document.getElementById('author').textContent = data[randomNum].author
+    }
+
     request.send()
 }
-document.getElementById("new-quote").onclick = newQuote;
+document.getElementById('new-quote').onclick = newQuote;
 newQuote();
